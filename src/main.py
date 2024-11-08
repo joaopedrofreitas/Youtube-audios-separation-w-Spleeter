@@ -1,10 +1,4 @@
-!pip install pydub
-!pip install spleeter
-!pip install librosa
-!pip install matplotlib
-!pwd
-!pip install --upgrade click typer
-!pip install yt-dlpimport yt_dlp
+import yt_dlp
 import warnings
 warnings.filterwarnings("ignore")
 from spleeter.separator import Separator
@@ -168,15 +162,14 @@ def base_function(option,input_file,output_file,output_type,base_file,plot):
                 plot_figures(os.path.join(output_file,file),base_output_file,namefile=name)
 
 if __name__ == '__main__':
-  #os.makedirs("manipulação302", exist_ok=True)
-  LINK = "https://www.youtube.com/watch?v=J9gKyRmic20"
-  OPTION = 2
-  PLOT = True
   output_file="manipulacao302/"
-  nome_arquivo="audios.mp3"
-  input_file=nome_arquivo
-  output_type='mp3'
+  nome_arquivo = "audios.mp3"
+  input_file="audios.mp3"
+  output_type='mp3' 
   base_file="audio1 (2).mp3"
+  LINK = input("LINK: ")
+  OPTION = int(input("OPTION: "))
+  PLOT = False
   comando = [
     'yt-dlp',
     '-x',
